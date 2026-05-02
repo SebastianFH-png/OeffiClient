@@ -122,7 +122,7 @@ bool OeffiClient::_httpGet(const String& url, String& out) {
     }
 
     out = http.getString();
-    _lastRawJson = out;
+    _lastRawJson.clear();
     http.end();
 
     if (out.isEmpty()) {
@@ -204,9 +204,10 @@ bool OeffiClient::_parseResponse(const String& json,
                                   const String& lineName,
                                   LineDepartures& result) {
     // Allocate JSON document on heap – ESP32 heap is generous enough
-    DynamicJsonDocument doc(JSON_DOC_SIZE);
+    static DynamicJsonDocument doc(JSON_DOC_SIZE);
+    doc.clear();
 
-    DeserializationError err = deserializeJson(doc, json);
+    DeserializationError err = deserializeJson(doc, json, DeserializationOption::NestingLimit(30));
     if (err) {
         result.errorMsg = String("JSON parse error: ") + err.c_str();
         Serial.printf("[OeffiClient] %s\n", result.errorMsg.c_str());

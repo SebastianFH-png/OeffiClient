@@ -77,7 +77,7 @@ public:
     // ── Configuration ────────────────────────
 
     /** Base URL of the Wiener Linien realtime API. */
-    static constexpr const char *API_BASE = "http://www.wienerlinien.at/ogd_realtime/";
+    static constexpr const char *API_BASE = "https://www.wienerlinien.at/ogd_realtime/";
 
     /**
      * Traffic info categories to activate in each request.
