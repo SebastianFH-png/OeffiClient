@@ -19,6 +19,16 @@ A lightweight, PlatformIO-compatible C++ library for querying real-time departur
 ---
 
 ## Installation (PlatformIO)
+
+### Automatic import
+1. Add ArduinoJson and OeffiClient to your `platformio.ini`:
+
+```ini
+lib_deps =
+    bblanchon/ArduinoJson @ ^6.21.4
+    https://github.com/SebastianFH-png/OeffiClient.git
+```
+
 ### Manual import
 1. Copy the `src/OeffiClient.h` and `src/OeffiClient.cpp` files into your project's `src/` directory (or a `lib/OeffiClient/` folder).
 2. Add ArduinoJson to your `platformio.ini`:
@@ -26,14 +36,6 @@ A lightweight, PlatformIO-compatible C++ library for querying real-time departur
 ```ini
 lib_deps =
     bblanchon/ArduinoJson @ ^6.21.4
-```
-###Automatic import
-1. Add ArduinoJson and OeffiClient to your `platformio.ini`:
-
-```ini
-lib_deps =
-    bblanchon/ArduinoJson @ ^6.21.4
-    https://github.com/SebastianFH-png/OeffiClient.git
 ```
 
 ---
